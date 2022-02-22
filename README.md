@@ -9,6 +9,7 @@
 - [什么是数学](#什么是数学)
 	- [数学归纳法](#数学归纳法)
 	- [素数](#素数)
+	- [同余](#同余)
 
 ## 课程笔记
 
@@ -227,3 +228,64 @@ $$
 **哥德巴赫猜想** 是任何一个偶数（除了 2）都能表示为两个素数的和。（至今未证明）
 
 存在无穷多个 $<p, p + 2>$ 这样形式的素数对。（至今未证明）
+
+### 同余
+
+如果整数 $a$ 和 $b$ 用 $d$ 除有相同的余数，即如果有一整数 $n$ 使得 $a - b = nd$ 成立（这里 $d$ 是一固定整数），我们就说 $a$ 和 $b$ 是模 $d$ 同余的，记作
+
+$$
+a \equiv b (\bmod d)
+$$
+
+同余有一些简单的性质。
+
+$$
+\begin{aligned}
+\text{恒有 } a &\equiv a (\bmod d) \\
+\text{如果 } a &\equiv b (\bmod d), \text{则 } b \equiv a (\bmod d) \\
+\text{如果 } a &\equiv b (\bmod d), b \equiv c (\bmod d), \text{则 } a \equiv c (\bmod d) \\
+\end{aligned}
+$$
+
+对于相同的模，同余式可以加、减、乘。
+
+即如果 $a \equiv a^{'} (\bmod d), b \equiv b^{'} (\bmod d)$，则
+
+$$
+\begin{aligned}
+a + b &\equiv a ^ {'} + b ^ {'} (\bmod d). \\
+a - b &\equiv a ^{'} - b ^ {'} (\bmod d). \\
+ab &\equiv a^{'}b^{'} (\bmod d). \\
+\end{aligned}
+$$
+
+**如何求一个大的十进制数能否被定素数整除？**
+
+以素数 $13$ 为例，假设数 $S = a_0 + a_1 \times 10^1 + a_2 \times 10^2 + \cdots a_n \times 10^n$.
+
+不难求出：
+
+$$
+\begin{aligned}
+10^0 \equiv 1 &(\bmod 13) \\
+10^1 \equiv -3 &(\bmod 13) \\
+10^2 \equiv -4 &(\bmod 13) \\
+10^3 \equiv -1 &(\bmod 13) \\
+10^4 \equiv 3 &(\bmod 13) \\
+10^5 \equiv 4 &(\bmod 13) \\
+10^6 \equiv 1 &(\bmod 13) \\
+10^7 \equiv -3 &(\bmod 13) \\
+&\cdots \\
+\end{aligned}
+$$
+
+之后的余数是上面的重复，因此 $S$ 被 $13$ 整除必须而且只须表达式：
+
+$$
+r = 1 \times a_0 - 3 \times a_1 - 4 \times a_2 - 1 \times a_3 + 3 \times a_4 + 4 \times a_5 + 1 \times a_6 - 3 \times a_7
+$$
+
+能被 $13$ 整除。
+
+**性质：模 $d$ 是素数时，仅当 $a \equiv 0 (\bmod d)$ 或 $b \equiv 0 (\bmod d)$ 时，有 $ab \equiv 0 (\bmod d)$。**
+
